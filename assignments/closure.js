@@ -1,6 +1,29 @@
 // ==== Challenge 1: Write your own closure ====
 // Write a simple closure of your own creation.  Keep it simple!
+const showIncreasedFrustration = () => {
+  let frustrationLevel = 0;
+  let increaseFrustration = function() {
+    let scream = 'Ar';
+    for (let i=0; i<frustrationLevel; i++) {
+      scream = scream + 'r';
+    }
+    scream = scream + 'gh';
+    frustrationLevel = frustrationLevel + 1;
+    console.log(scream);
+  }
+  return increaseFrustration;
+};
 
+const newScream = showIncreasedFrustration();
+newScream();
+newScream();
+newScream();
+newScream();
+newScream();
+newScream();
+newScream();
+newScream();
+newScream();
 
 // ==== Challenge 2: Create a counter function ====
 const counter = () => {
@@ -10,7 +33,7 @@ const counter = () => {
     count = count + 1;
     console.log(count);
     return count;
-  }
+  };
   return inc;
 };
 const newCounter = counter();
