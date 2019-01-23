@@ -1,14 +1,44 @@
 // ==== Challenge 1: Write your own closure ====
 // Write a simple closure of your own creation.  Keep it simple!
+const showIncreasedFrustration = () => {
+  let frustrationLevel = 0;
+  let increaseFrustration = function() {
+    let scream = 'Ar';
+    for (let i=0; i<frustrationLevel; i++) {
+      scream = scream + 'r';
+    }
+    scream = scream + 'gh';
+    frustrationLevel = frustrationLevel + 1;
+    console.log(scream);
+  }
+  return increaseFrustration;
+};
 
+const newScream = showIncreasedFrustration();
+newScream();
+newScream();
+newScream();
+newScream();
+newScream();
+newScream();
+newScream();
+newScream();
+newScream();
 
 // ==== Challenge 2: Create a counter function ====
 const counter = () => {
   // Return a function that when invoked increments and returns a counter variable.
+  let count = 0;
+  let inc = function() {
+    count = count + 1;
+    console.log(count);
+    return count;
+  };
+  return inc;
 };
-// Example usage: const newCounter = counter();
-// newCounter(); // 1
-// newCounter(); // 2
+const newCounter = counter();
+newCounter(); // 1
+newCounter(); // 2
 
 /* STRETCH PROBLEM, Do not attempt until you have completed all previous tasks for today's project files */
 
@@ -17,4 +47,20 @@ const counterFactory = () => {
   // Return an object that has two methods called `increment` and `decrement`.
   // `increment` should increment a counter variable in closure scope and return it.
   // `decrement` should decrement the counter variable and return it.
+  const counter = {
+    count: 0,
+    increment: function() {
+      this.count = this.count + 1;
+      return this.count;
+    },
+    decrement: function() {
+      this.count = this.count - 1;
+      return this.count;
+    }
+  }
+  return counter;
 };
+
+let huh = counterFactory();
+console.log(huh.increment());
+console.log(huh.increment());
